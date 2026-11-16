@@ -1,8 +1,67 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// =============================================================================
+// 背景
+// -----------------------------------------------------------------------------
+// 默认：两层柔和光晕（浅色偏暖绿，深色偏冷）。改颜色只需要动 --bg-light / --bg-dark。
+// 下面还写了另外两种现成方案（纯色、图片），需要用哪种就把对应注释打开。
+// =============================================================================
 
-/* 字体：全部走系统字体，不依赖 Google Fonts，国内访问不会卡 */
+:root:root {
+  --bg-light:
+    radial-gradient(1100px 620px at 8% -12%, rgba(47, 93, 80, 0.09), transparent 62%),
+    radial-gradient(820px 520px at 108% 4%, rgba(134, 168, 154, 0.13), transparent 58%);
+  --bg-dark:
+    radial-gradient(1100px 620px at 8% -12%, rgba(138, 180, 164, 0.08), transparent 62%),
+    radial-gradient(820px 520px at 108% 4%, rgba(47, 93, 80, 0.22), transparent 58%);
+}
+
+body {
+  background-image: var(--bg-light);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+html[saved-theme="dark"] body {
+  background-image: var(--bg-dark);
+}
+
+// --- 方案 B：纯色 -------------------------------------------------------------
+// 删掉上面 body 里的 background-image，然后改 quartz.config.yaml：
+//   configuration.theme.colors.lightMode.light  （浅色背景）
+//   configuration.theme.colors.darkMode.light   （深色背景）
+
+// --- 方案 C：一张图片 ---------------------------------------------------------
+// 1. 把图放到 quartz/static/bg.jpg（构建后可在 /static/bg.jpg 访问）
+// 2. 取消下面这段注释
+//
+// body {
+//   background-image: url("./static/bg.jpg");
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+// }
+// html[saved-theme="dark"] body {
+//   background-image:
+//     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+//     url("./static/bg.jpg");
+//   background-size: cover;
+//   background-position: center;
+// }
+
+// --- 方案 D：只给首页单独设置 ------------------------------------------------
+// body 上有 data-slug，可以直接按页面覆盖：
+//
+// body[data-slug="index"] {
+//   background-image: url("./static/hero.jpg");
+//   background-size: cover;
+// }
+
+// =============================================================================
+// 字体：全部走系统字体，不依赖 Google Fonts，国内访问不会卡
+// =============================================================================
+
 :root:root {
   --titleFont: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC",
     "Microsoft YaHei", serif;
@@ -14,7 +73,10 @@
     monospace;
 }
 
-/* 首页的领域卡片：四宫格，窄屏自动堆叠 */
+// =============================================================================
+// 首页的四宫格卡片
+// =============================================================================
+
 .domain-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -33,7 +95,9 @@
   padding: 1.1rem 1.25rem;
   border: 1px solid var(--lightgray);
   border-radius: 10px;
-  background: var(--light);
+  // 半透明 + 毛玻璃：让背景的光晕能透出来一点，卡片不会像一块死板的白板
+  background: color-mix(in srgb, var(--light) 62%, transparent);
+  backdrop-filter: blur(8px);
   text-decoration: none !important;
   transition:
     border-color 0.18s ease,
