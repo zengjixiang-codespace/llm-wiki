@@ -1,3 +1,66 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+/* 字体：全部走系统字体，不依赖 Google Fonts，国内访问不会卡 */
+:root:root {
+  --titleFont: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC",
+    "Microsoft YaHei", serif;
+  --headerFont: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC",
+    "Microsoft YaHei", serif;
+  --bodyFont: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+  --codeFont: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo,
+    monospace;
+}
+
+/* 首页的领域卡片：四宫格，窄屏自动堆叠 */
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 2rem;
+
+  @media all and ($mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.domain-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 10px;
+  background: var(--light);
+  text-decoration: none !important;
+  transition:
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.domain-emoji {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.domain-name {
+  font-family: var(--headerFont);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.domain-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--gray);
+}
