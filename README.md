@@ -121,7 +121,8 @@ gh auth status
 | 想改什么 | 去哪儿 |
 | --- | --- |
 | 站点标题、语言、颜色 | `quartz.config.yaml` 的 `configuration` |
-| 字体、卡片样式 | `quartz/styles/custom.scss` |
+| 字体、卡片样式、背景蒙版 | `quartz/styles/custom.scss` |
+| 背景图 | 直接替换 `quartz/static/bg.jpg` |
 | 首页内容 | `content/index.md` |
 | 导航栏/搜索/关系图的位置 | `quartz.config.yaml` 的 `layout` |
 

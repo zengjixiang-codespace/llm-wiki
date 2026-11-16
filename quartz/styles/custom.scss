@@ -1,62 +1,76 @@
 @use "./variables.scss" as *;
 
 // =============================================================================
-// 背景
+// 背景：壁纸 quartz/static/bg.jpg
 // -----------------------------------------------------------------------------
-// 默认：两层柔和光晕（浅色偏暖绿，深色偏冷）。改颜色只需要动 --bg-light / --bg-dark。
-// 下面还写了另外两种现成方案（纯色、图片），需要用哪种就把对应注释打开。
+// 壁纸放在固定层（::before）里做轻度模糊，蒙版在 ::after 里，
+// 正文永远压在两层之上——图是氛围，文字必须最清楚。
+// 换图：直接替换 quartz/static/bg.jpg，不用改代码。
 // =============================================================================
 
-:root:root {
-  --bg-light:
-    radial-gradient(1100px 620px at 8% -12%, rgba(47, 93, 80, 0.09), transparent 62%),
-    radial-gradient(820px 520px at 108% 4%, rgba(134, 168, 154, 0.13), transparent 58%);
-  --bg-dark:
-    radial-gradient(1100px 620px at 8% -12%, rgba(138, 180, 164, 0.08), transparent 62%),
-    radial-gradient(820px 520px at 108% 4%, rgba(47, 93, 80, 0.22), transparent 58%);
-}
-
 body {
-  background-image: var(--bg-light);
+  background-color: var(--light);
+  background-image: none;
+}
+
+// 图片层：fixed + 轻模糊，避免细节干扰阅读
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("./static/bg.jpg");
+  background-size: cover;
+  background-position: left center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  filter: blur(6px) saturate(0.95) brightness(0.9);
+  transform: scale(1.06);
 }
 
-html[saved-theme="dark"] body {
-  background-image: var(--bg-dark);
+// 蒙版层：左边最暗（放侧栏和正文），右边留出画面主体
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    rgba(4, 9, 24, 0.95) 0%,
+    rgba(5, 11, 28, 0.9) 42%,
+    rgba(6, 13, 32, 0.72) 74%,
+    rgba(6, 13, 32, 0.56) 100%
+  );
 }
 
-// --- 方案 B：纯色 -------------------------------------------------------------
-// 删掉上面 body 里的 background-image，然后改 quartz.config.yaml：
-//   configuration.theme.colors.lightMode.light  （浅色背景）
-//   configuration.theme.colors.darkMode.light   （深色背景）
+// 浅色模式：强白蒙版，只留一层很淡的蓝灰底纹
+html[saved-theme="light"] body::after {
+  background: linear-gradient(
+    180deg,
+    rgba(250, 252, 255, 0.95),
+    rgba(246, 250, 255, 0.92)
+  );
+}
 
-// --- 方案 C：一张图片 ---------------------------------------------------------
-// 1. 把图放到 quartz/static/bg.jpg（构建后可在 /static/bg.jpg 访问）
-// 2. 取消下面这段注释
-//
-// body {
-//   background-image: url("./static/bg.jpg");
-//   background-size: cover;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-// }
-// html[saved-theme="dark"] body {
-//   background-image:
-//     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-//     url("./static/bg.jpg");
-//   background-size: cover;
-//   background-position: center;
-// }
+html[saved-theme="light"] body::before {
+  filter: blur(10px) saturate(0.8) brightness(1.15);
+}
 
-// --- 方案 D：只给首页单独设置 ------------------------------------------------
-// body 上有 data-slug，可以直接按页面覆盖：
+// 右侧栏压在画面亮部上，给一点深色底保证图谱和目录看得清
+html[saved-theme="dark"] .right.sidebar {
+  background: linear-gradient(180deg, rgba(6, 12, 30, 0.5), rgba(6, 12, 30, 0.28));
+  border-radius: 12px;
+  padding: 0.6rem;
+}
+
+// --- 想让画面更清楚 ------------------------------------------------------------
+// 把 body::after 里 0.94 / 0.87 / 0.6 / 0.4 整体调小，或把 body::before 的 blur 调到 2px。
+
+// --- 想换回纯渐变（不要图） -----------------------------------------------------
+// 删掉 body::before，把 body::after 的 background 换成：
 //
-// body[data-slug="index"] {
-//   background-image: url("./static/hero.jpg");
-//   background-size: cover;
-// }
+// background:
+//   radial-gradient(1100px 620px at 8% -12%, rgba(47, 93, 80, 0.09), transparent 62%),
+//   radial-gradient(820px 520px at 108% 4%, rgba(134, 168, 154, 0.13), transparent 58%);
 
 // =============================================================================
 // 字体：全部走系统字体，不依赖 Google Fonts，国内访问不会卡

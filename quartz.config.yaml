@@ -20,25 +20,25 @@ configuration:
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#2f5d50"
-        tertiary: "#86a89a"
-        highlight: rgba(47, 93, 80, 0.12)
-        textHighlight: "#fff23688"
+        light: "#f6f8fc"
+        lightgray: "#e2e8f2"
+        gray: "#a8b4c8"
+        darkgray: "#3a4459"
+        dark: "#141c2e"
+        secondary: "#2f5d8a"
+        tertiary: "#7c9fc4"
+        highlight: rgba(47, 93, 138, 0.12)
+        textHighlight: "#cfe0f5"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#8ab4a4"
-        tertiary: "#84a59d"
-        highlight: rgba(138, 180, 164, 0.12)
-        textHighlight: "#b3aa0288"
+        light: "#070c1c"
+        lightgray: "#1b2540"
+        gray: "#7f8db0"
+        darkgray: "#c6d2e8"
+        dark: "#eef3ff"
+        secondary: "#8ab8ff"
+        tertiary: "#9fc7ff"
+        highlight: rgba(138, 184, 255, 0.14)
+        textHighlight: "#8ab8ff55"
   links:
     markdownLinkResolution: shortest
   contentIndex:
