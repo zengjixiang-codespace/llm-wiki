@@ -66,22 +66,19 @@ content/
 
 ## 发布到 GitHub Pages
 
-1. 在 GitHub 新建仓库（**不要**勾选初始化 README / .gitignore），拿到仓库地址
-2. 接上远程仓库：
+仓库已经建好并接上了 `origin`（`zengjixiang-codespace/llm-wiki`），Pages 也已开启。日常只需要：
 
-   ```bash
-   git remote add origin https://github.com/<你的用户名>/<仓库名>.git
-   git push -u origin main
-   ```
+```bash
+git add -A && git commit -m "更新笔记" && git push
+```
 
-3. 仓库 **Settings → Pages → Source** 选 **GitHub Actions**
-4. 改 `quartz.config.yaml` 里的 `baseUrl` 为实际地址，例如 `你的用户名.github.io/仓库名`
+`.github/workflows/deploy.yml` 会自动构建并发布到
+**https://zengjixiang-codespace.github.io/llm-wiki/**，大约一分钟。
 
-之后每次 `git push`，`.github/workflows/deploy.yml` 会自动构建并发布。
-
-> [!important] 两处要按你的实际情况改
-> - `quartz.config.yaml` 的 `baseUrl`（现在是占位的 `zengjixiang-codespace.github.io/wiki`）
-> - `.github/workflows/deploy.yml` 的触发分支（现在是 `main`）
+> [!important] 三个跟地址相关的配置，改名或换仓库时一起改
+> - `quartz.config.yaml` 的 `baseUrl`：`zengjixiang-codespace.github.io/llm-wiki`
+> - `.github/workflows/deploy.yml` 的触发分支：`main`
+> - 仓库 **Settings → Pages → Source**：GitHub Actions
 
 ## 改外观
 

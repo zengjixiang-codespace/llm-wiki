@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics: null
   locale: zh-CN
-  baseUrl: zengjixiang-codespace.github.io/wiki
+  baseUrl: zengjixiang-codespace.github.io/llm-wiki
   ignorePatterns:
     - private
     - templates
