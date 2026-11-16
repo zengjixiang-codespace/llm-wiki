@@ -25,6 +25,8 @@ aliases:
 
 站点是纯静态的，没有数据库也没有后台。所有内容都在仓库的 `content/` 目录里，改完 push 就会重新发布。
 
+搭建的完整过程——包括每个节点的作用、以及踩过的坑——写在 [[build-a-personal-wiki|从零搭一个个人知识库]] 里。
+
 ## 标签约定
 
 - 领域：`programming` / `architecture` / `guitar` / `middleware`
