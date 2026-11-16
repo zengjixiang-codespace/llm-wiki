@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # 只自动更新 workflow 里用到的 actions 版本（actions/checkout、setup-node 等）。
+  # npm 依赖故意不交给 Dependabot：Quartz 的依赖要和插件一起升，
+  # 用 `npx quartz upgrade` 更安全。
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Shanghai"
+    groups:
+      ci-dependencies:
+        applies-to: "version-updates"
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "ci"

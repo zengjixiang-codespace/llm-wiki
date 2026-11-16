@@ -69,34 +69,35 @@ content/
 仓库：[zengjixiang-codespace/llm-wiki](https://github.com/zengjixiang-codespace/llm-wiki)
 线上地址：**https://zengjixiang-codespace.github.io/llm-wiki/**
 
-发表一篇新笔记，两步：
+发表一篇新笔记，一步：
 
 ```bash
-git add -A && git commit -m "更新笔记" && git push   # 1. 源码进 main
-./deploy.sh                                        # 2. 构建并发布
+git add -A && git commit -m "更新笔记" && git push
 ```
 
-`deploy.sh` 会构建站点，把 `public/` 强制推到 `gh-pages` 分支；Pages 配置为**从 `gh-pages` 分支发布**，推送后约一分钟生效。
+推送到 `main` 后，`.github/workflows/deploy.yml` 自动构建并发布，约一分钟生效。
+在仓库 **Actions** 页能看到每次构建的日志。
 
-> [!note] 为什么不是 GitHub Actions
-> 原因很具体：推送用的 GitHub OAuth token 缺 `workflow` 权限，GitHub 拒绝接收
-> `.github/workflows/` 下的文件。所以工作流先放在 `ci/deploy-pages.workflow.yml`。
->
-> 想切回「push 就自动发布」：
->
-> ```bash
-> gh auth refresh -s workflow        # 补权限，确认 gh auth status 里出现 workflow
-> git mv ci/deploy-pages.workflow.yml .github/workflows/deploy.yml
-> git push
-> ```
->
-> 然后到仓库 **Settings → Pages → Source** 改成 **GitHub Actions**，之后就不用再跑 `deploy.sh` 了。
-> `ci/deploy-pages.workflow.yml` 开头也写了同样的步骤。
+### 依赖更新
+
+`.github/dependabot.yml` 每周一检查 `.github/workflows/` 里用到的 actions 版本
+（`actions/checkout`、`setup-node` 等），有新版本就提一个 PR。它只提 PR 不自动合并。
+
+npm 依赖**故意不交给 Dependabot**——Quartz 的依赖必须和配套插件一起升，用：
+
+```bash
+npx quartz upgrade
+```
+
+### 应急方案
+
+`deploy.sh` 保留着：构建后强推 `gh-pages` 分支。如果哪天 Actions 出问题、又急着发布，
+可以手动跑一次，再到 Settings → Pages 临时切回 `gh-pages` 分支。
 
 > [!important] 三个跟地址相关的配置，改名或换仓库时一起改
 > - `quartz.config.yaml` 的 `baseUrl`：`zengjixiang-codespace.github.io/llm-wiki`
-> - `ci/deploy-pages.workflow.yml` 的触发分支：`main`
-> - 仓库 **Settings → Pages → Source**：目前是 `gh-pages` 分支
+> - `.github/workflows/deploy.yml` 的触发分支：`main`
+> - 仓库 **Settings → Pages → Source**：GitHub Actions
 
 ## 改外观
 
