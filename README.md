@@ -94,6 +94,23 @@ npx quartz upgrade
 `deploy.sh` 保留着：构建后强推 `gh-pages` 分支。如果哪天 Actions 出问题、又急着发布，
 可以手动跑一次，再到 Settings → Pages 临时切回 `gh-pages` 分支。
 
+### 凭据过期了怎么办
+
+`git push` 报 `Authentication failed` / `401 Bad credentials`，基本就是 token 过期。
+
+**这只影响本地推送，不影响线上**——Actions 用的是 GitHub 自动注入的 `GITHUB_TOKEN`，
+`npx quartz upgrade`、`npx quartz sync` 这类命令则需要本地 token 正常。
+
+续期：
+
+```bash
+# 新建 token 时勾 repo + workflow + read:org（缺 read:org 会被 gh 拒绝）
+read -rs GH_TOKEN && printf '%s\n' "$GH_TOKEN" | gh auth login --with-token
+gh auth status
+```
+
+更省事的办法：用 `gh auth login` 走浏览器授权，拿到的 OAuth token 长期有效，不用定期续。
+
 > [!important] 三个跟地址相关的配置，改名或换仓库时一起改
 > - `quartz.config.yaml` 的 `baseUrl`：`zengjixiang-codespace.github.io/llm-wiki`
 > - `.github/workflows/deploy.yml` 的触发分支：`main`

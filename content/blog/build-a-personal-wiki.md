@@ -200,7 +200,51 @@ npm error Your cache folder contains root-owned files
 **原因**：字体阻塞渲染，`font-display: swap` 只能缓解换脸闪烁。
 **解法**：换系统字体栈，或者用 `fontOrigin: selfHosted` 在构建时下载字体自托管。
 
-## 六、这套方案的边界
+## 六、凭据：token 过期了怎么续
+
+这一节单独讲，因为「token 会不会过期」是最容易被忽略的事。先把三种凭据分清，很多困惑来自把它们混为一谈：
+
+| 凭据 | 谁在用 | 会不会过期 | 过期影响谁 |
+| --- | --- | --- | --- |
+| `GITHUB_TOKEN` | Actions 运行时自动注入 | 每次运行重新生成 | 无影响 |
+| gh OAuth token（`gho_`） | `gh` 命令、`git push` | 长期有效，除非被撤销 | 只有你本机 |
+| 个人访问令牌 PAT（`ghp_` / `github_pat_`） | 代替上一种使用 | **有有效期**（默认 30 天） | 只有你本机 |
+
+**关键结论：token 过期只影响你本地推送，线上站点完全不受影响。** Actions 用的是 GitHub 自动注入的 `GITHUB_TOKEN`，和你那把 PAT 没有任何关系——这也是为什么把构建放在 CI 里更省心：凭据的生命周期和你的本地环境解耦了。
+
+### 到期时的症状
+
+```text
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/xxx/yyy.git'
+```
+
+或者 `gh` 命令直接返回 `401 Bad credentials`。注意 GitHub 会在 classic token 到期前几天发邮件提醒，别把那个邮件当广告删了。
+
+### 续期的三步
+
+```bash
+# 1. 新建 token：Settings → Developer settings → Tokens
+#    勾选 repo、workflow、read:org（缺 read:org 会导致 gh auth login 直接拒绝）
+
+# 2. 换掉本地凭据（粘贴时不会回显，也不会进 shell 历史）
+read -rs GH_TOKEN && printf '%s\n' "$GH_TOKEN" | gh auth login --with-token
+
+# 3. 验证
+gh auth status      # 三个 scope 都要在，Token 前缀应为 ghp_ 或 github_pat_
+```
+
+### 更省事的做法：别用 PAT
+
+`gh auth login` 走浏览器设备流，拿到的是 `gho_` 开头的 OAuth token，**长期有效**，不用每 30 天换一次。PAT 只在两种情况下才值得用：需要精确控制权限范围，或者机器上开不了浏览器。
+
+### 三条纪律
+
+- token 不进仓库、不进截图、不进聊天记录——一旦泄露就当作已泄露，立刻吊销重建
+- token 不进 workflow secrets。Actions 自带 `GITHUB_TOKEN`，把个人 PAT 塞进去只会扩大攻击面
+- 定期检查 https://github.com/settings/tokens ，删掉不再使用的
+
+## 七、这套方案的边界
 
 静态站很适合「长期积累、低频更新、需要被检索」的知识库，但有几件事它做不了：
 
@@ -210,7 +254,7 @@ npm error Your cache folder contains root-owned files
 
 这也解释了为什么「LLM Wiki」和「RAG」在讨论里总和静态站一起出现：前者改变的是**知识在什么时机被整理**（写的时候 vs 查的时候），后者改变的是**检索方式**。它们和「用哪个生成器」是正交的两件事——本站现在只是把「写的时候」这部分交给了自己，辅助整理留到以后。
 
-## 七、小结
+## 八、小结
 
 回头看，整个方案的复杂度分布很不平均：
 
