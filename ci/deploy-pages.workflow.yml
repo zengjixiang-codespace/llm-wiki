@@ -1,3 +1,16 @@
+# 注意：这个文件目前放在 ci/ 而不是 .github/workflows/
+#
+# 原因：推送到 GitHub 的 token 缺少 workflow 权限，GitHub 拒绝创建
+# .github/workflows/ 下的文件。挪出来就能正常推送。
+#
+# 等拿到权限后（gh auth refresh -s workflow），两步切回 Actions 部署：
+#
+#   git mv ci/deploy-pages.workflow.yml .github/workflows/deploy.yml
+#   git push
+#
+# 然后到仓库 Settings -> Pages，把 Source 从 gh-pages 分支改成 GitHub Actions，
+# 并删除部署脚本 deploy.sh 和 gh-pages 分支（可选）。
+
 name: Deploy Quartz site to GitHub Pages
 
 on:

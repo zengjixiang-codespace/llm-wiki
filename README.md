@@ -66,19 +66,37 @@ content/
 
 ## 发布到 GitHub Pages
 
-仓库已经建好并接上了 `origin`（`zengjixiang-codespace/llm-wiki`），Pages 也已开启。日常只需要：
+仓库：[zengjixiang-codespace/llm-wiki](https://github.com/zengjixiang-codespace/llm-wiki)
+线上地址：**https://zengjixiang-codespace.github.io/llm-wiki/**
+
+发表一篇新笔记，两步：
 
 ```bash
-git add -A && git commit -m "更新笔记" && git push
+git add -A && git commit -m "更新笔记" && git push   # 1. 源码进 main
+./deploy.sh                                        # 2. 构建并发布
 ```
 
-`.github/workflows/deploy.yml` 会自动构建并发布到
-**https://zengjixiang-codespace.github.io/llm-wiki/**，大约一分钟。
+`deploy.sh` 会构建站点，把 `public/` 强制推到 `gh-pages` 分支；Pages 配置为**从 `gh-pages` 分支发布**，推送后约一分钟生效。
+
+> [!note] 为什么不是 GitHub Actions
+> 原因很具体：推送用的 GitHub OAuth token 缺 `workflow` 权限，GitHub 拒绝接收
+> `.github/workflows/` 下的文件。所以工作流先放在 `ci/deploy-pages.workflow.yml`。
+>
+> 想切回「push 就自动发布」：
+>
+> ```bash
+> gh auth refresh -s workflow        # 补权限，确认 gh auth status 里出现 workflow
+> git mv ci/deploy-pages.workflow.yml .github/workflows/deploy.yml
+> git push
+> ```
+>
+> 然后到仓库 **Settings → Pages → Source** 改成 **GitHub Actions**，之后就不用再跑 `deploy.sh` 了。
+> `ci/deploy-pages.workflow.yml` 开头也写了同样的步骤。
 
 > [!important] 三个跟地址相关的配置，改名或换仓库时一起改
 > - `quartz.config.yaml` 的 `baseUrl`：`zengjixiang-codespace.github.io/llm-wiki`
-> - `.github/workflows/deploy.yml` 的触发分支：`main`
-> - 仓库 **Settings → Pages → Source**：GitHub Actions
+> - `ci/deploy-pages.workflow.yml` 的触发分支：`main`
+> - 仓库 **Settings → Pages → Source**：目前是 `gh-pages` 分支
 
 ## 改外观
 
