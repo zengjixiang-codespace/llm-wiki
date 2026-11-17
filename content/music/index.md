@@ -1,8 +1,8 @@
 ---
-title: 吉他
+title: 音乐
 description: 技巧、乐理、曲目与练习记录。
 tags:
-  - guitar
+  - music
   - type/moc
 ---
 
