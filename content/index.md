@@ -1,6 +1,6 @@
 ---
-title: 知识花园
-description: 编程语言、架构、吉他、中间件的个人学习笔记。
+title: 随记
+description: 编程、音乐、美食、碎碎念的个人知识仓库。
 ---
 
 这里是我的学习笔记。四个方向并排推进，每篇笔记都是一个可以独立阅读的小单元，靠链接连成一张网。
@@ -8,23 +8,23 @@ description: 编程语言、架构、吉他、中间件的个人学习笔记。
 <div class="domain-grid">
   <a class="domain-card" href="programming/">
     <span class="domain-emoji">💻</span>
-    <span class="domain-name">编程语言</span>
+    <span class="domain-name">编程</span>
     <span class="domain-desc">语言特性、类型系统、语法糖，以及真正踩过的坑</span>
   </a>
-  <a class="domain-card" href="architecture/">
-    <span class="domain-emoji">🏛️</span>
-    <span class="domain-name">架构</span>
-    <span class="domain-desc">设计原则、模式与权衡，记结论之前先记理由</span>
-  </a>
-  <a class="domain-card" href="guitar/">
+  <a class="domain-card" href="music/">
     <span class="domain-emoji">🎸</span>
-    <span class="domain-name">吉他</span>
+    <span class="domain-name">音乐</span>
     <span class="domain-desc">技巧、乐理、曲目，还有枯燥但有效的练习记录</span>
   </a>
-  <a class="domain-card" href="middleware/">
-    <span class="domain-emoji">🔌</span>
-    <span class="domain-name">中间件</span>
-    <span class="domain-desc">组件行为、配置项，以及线上故障里学到的规律</span>
+  <a class="domain-card" href="delicious Food/">
+    <span class="domain-emoji">🥩</span>
+    <span class="domain-name">美食</span>
+    <span class="domain-desc">记录菜谱</span>
+  </a>
+  <a class="domain-card" href="feeling/">
+    <span class="domain-emoji">🤔</span>
+    <span class="domain-name">碎碎念</span>
+    <span class="domain-desc">所见、所悟、所想</span>
   </a>
 </div>
 
