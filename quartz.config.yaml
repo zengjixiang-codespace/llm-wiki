@@ -203,13 +203,23 @@ plugins:
       priority: 5
       condition: not-index
   - source: "@quartz-community/comments"
-    enabled: false
+    enabled: true
     options:
       provider: giscus
-      options: {}
+      options:
+        repo: zengjixiang-codespace/llm-wiki
+        repoId: R_kgDOVwkAgQ
+        category: Announcements
+        categoryId: DIC_kwDOVwkAgc4DLUaT
+        lang: zh-CN
+        mapping: pathname
+        strict: true
+        reactionsEnabled: true
+        inputPosition: top
     layout:
       position: afterBody
       priority: 10
+      condition: not-index
   - source: "@quartz-community/footer"
     enabled: true
     options:
@@ -264,11 +274,13 @@ layout:
     folder:
       exclude:
         - reader-mode
+        - comments
       positions:
         right: []
     tag:
       exclude:
         - reader-mode
+        - comments
       positions:
         right: []
     canvas: {}

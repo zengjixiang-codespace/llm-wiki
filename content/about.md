@@ -3,6 +3,7 @@ title: 关于
 description: 关于这个站，以及它是怎么搭起来的。
 aliases:
   - about-site
+comments: false
 ---
 
 这是我的个人知识库，用来记录长期学习中的笔记、调试记录和阶段性结论。

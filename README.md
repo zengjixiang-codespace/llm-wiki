@@ -128,7 +128,19 @@ gh auth status
 
 字体目前**全部用系统字体**（苹方 / 微软雅黑 / Noto），不依赖 Google Fonts，国内打开不会卡在字体上。想换成网络字体，在 `quartz.config.yaml` 里把 `quartz-fonts` 的 `fontOrigin` 改回 `googleFonts` 即可。
 
+## 评论与点赞
+
+用 [Giscus](https://giscus.app/)：评论存进本仓库的 **Discussions → Announcements**，
+点赞用讨论上的 GitHub 反应（👍 ❤️ 等），数据都在自己仓库里，没有第三方数据库。
+
+- 配置在 `quartz.config.yaml` 的 `comments` 条目（`repoId` / `categoryId` 等）
+- 只显示在笔记和文章页：首页靠 `condition: not-index`，文件夹页和标签页在 `layout.byPageType` 里排除了
+- 单篇关闭：在该页 frontmatter 加 `comments: false`（`about.md` 就是这么关的）
+- **首次使用要在仓库上安装 giscus App**：<https://github.com/apps/giscus/installations/new>
+  不装的话评论区会显示 "giscus is not installed on this repository"
+
 ## 常用命令
+
 
 | 命令 | 作用 |
 | --- | --- |
