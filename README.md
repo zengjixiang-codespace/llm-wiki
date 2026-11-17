@@ -42,12 +42,14 @@ tags:
   - type/note          # 类型：note / log / cheatsheet / moc / topic
   - status/seedling    # 状态：seedling / growing / stable
 date: 2026-11-16
+# comments: false      # 取消注释 = 关掉这篇的评论区
 ---
 ```
 
 3. 用 `[[文件名|显示文字]]` 链接其他笔记，构建时自动生成反向链接和关系图
 
-完整模板见 `content/templates/note.md`（该目录已在 `ignorePatterns` 里，不会发布）。
+完整模板见 `content/templates/note.md`（该目录已在 `ignorePatterns` 里，不会发布），
+里面还列了 `unlisted` / `draft` / `aliases` 几个可选字段的用法。
 
 ## 目录结构
 

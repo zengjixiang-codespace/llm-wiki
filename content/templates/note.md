@@ -19,8 +19,23 @@ tags:
   - type/note          # 类型：note / log / cheatsheet / moc / topic
   - status/seedling    # 状态：seedling / growing / stable
 date: 2026-11-16
+# comments: false      # 取消注释 = 关掉这篇的评论区
 ---
 ```
+
+## 可选字段
+
+| 字段 | 作用 | 默认 |
+| --- | --- | --- |
+| `comments: false` | 关掉这一页的评论区 | 笔记页开；首页、文件夹页、标签页本来就是关的 |
+| `unlisted: true` | 页面照常发布、能直接访问，但不出现在侧栏树、搜索、关系图和反向链接里 | 否 |
+| `draft: true` | 完全不发布，构建时直接丢弃 | 否 |
+| `aliases` | 旧地址重定向，改文件名或改 URL 后旧链接不失效 | 无 |
+
+> [!tip] 什么时候用什么
+> 写了一半不想让人看 → `draft: true`；
+> 写完了但只想留个链接给自己 → `unlisted: true`；
+> 只是不想被评论打扰 → `comments: false`。
 
 ## 正文结构建议
 
