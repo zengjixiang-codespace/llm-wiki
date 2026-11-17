@@ -22,7 +22,7 @@ var r io.Reader = bytes.NewBufferString("hello")
 
 ## 好在哪
 
-- **使用者定义接口，实现者毫不知情**。`net/http` 定义了 `http.Handler`，你的业务代码不需要 import 任何框架包就能被调用。这是 [[dependency-inversion|依赖倒置]] 在语言层面的直接体现。
+- **使用者定义接口，实现者毫不知情**。`net/http` 定义了 `http.Handler`，你的业务代码不需要 import 任何框架包就能被调用。这是依赖倒置在语言层面的直接体现。
 - **接口可以小到只有一两个方法**。`io.Reader` / `io.Writer` 能拼出整个标准库的 I/O 抽象，因为小接口的组合空间大。
 - **测试替身成本极低**。不需要 mock 框架，写个结构体实现两个方法就行。
 
@@ -39,5 +39,4 @@ var r io.Reader = bytes.NewBufferString("hello")
 
 ## 相关
 
-- [[dependency-inversion|依赖倒置原则]]
 - [[programming/index|编程语言]]

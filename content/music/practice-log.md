@@ -2,7 +2,7 @@
 title: 练习日志模板
 description: 每次练琴只记三行：练了什么、卡在哪、下次先做什么。
 tags:
-  - guitar
+  - music
   - type/log
   - status/stable
 date: 2026-11-16
@@ -33,4 +33,4 @@ date: 2026-11-16
 
 ## 相关
 
-- [[guitar/index|吉他]]
+- [[music/index|音乐]]

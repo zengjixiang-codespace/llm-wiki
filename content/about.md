@@ -29,7 +29,7 @@ aliases:
 
 ## 标签约定
 
-- 领域：`programming` / `architecture` / `guitar` / `middleware`
+- 领域：`programming` / `music` / `food` / `feeling`
 - 类型：`type/note`、`type/log`、`type/cheatsheet`、`type/moc`
 - 状态：`status/seedling`（幼苗）→ `status/growing`（生长中）→ `status/stable`（稳定）
 

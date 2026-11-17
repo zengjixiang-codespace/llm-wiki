@@ -16,7 +16,7 @@ description: 编程、音乐、美食、碎碎念的个人知识仓库。
     <span class="domain-name">音乐</span>
     <span class="domain-desc">技巧、乐理、曲目，还有枯燥但有效的练习记录</span>
   </a>
-  <a class="domain-card" href="delicious Food/">
+  <a class="domain-card" href="food/">
     <span class="domain-emoji">🥩</span>
     <span class="domain-name">美食</span>
     <span class="domain-desc">记录菜谱</span>

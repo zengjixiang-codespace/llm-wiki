@@ -15,7 +15,7 @@ tags:
 title: 一句话判断，不是名词
 description: 一句话说明这篇解决什么问题，会出现在链接预览里。
 tags:
-  - programming        # 领域：programming / architecture / guitar / middleware
+  - programming        # 领域：programming / music / food / feeling
   - type/note          # 类型：note / log / cheatsheet / moc / topic
   - status/seedling    # 状态：seedling / growing / stable
 date: 2026-11-16

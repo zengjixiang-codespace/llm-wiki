@@ -28,7 +28,7 @@ date: 2026-11-17
 
 - 看到什么：
 - 为什么在意：
-- 大概属于：programming / architecture / guitar / middleware
+- 大概属于：programming / music / food / feeling
 ```
 
 攒够三五条，再挑时间拆进对应领域。拆的时候顺手在领域页的目录里加一行链接。
