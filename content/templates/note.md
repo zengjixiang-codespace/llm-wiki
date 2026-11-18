@@ -37,6 +37,29 @@ date: 2026-11-16
 > 写完了但只想留个链接给自己 → `unlisted: true`；
 > 只是不想被评论打扰 → `comments: false`。
 
+## 图片放哪儿
+
+图片放在**与笔记同名的文件夹**里，和笔记并排：
+
+```text
+music/
+├── practice-plan.md
+└── practice-plan/
+    ├── practice-flow.webp
+    └── another-image.png
+```
+
+正文里这样引用：
+
+```md
+![[practice-plan/practice-flow.webp|图片说明文字]]
+```
+
+好处很实际：删掉笔记时，整个同名文件夹一起删，不会在附件目录里留下一堆孤儿图片；以后回头找某张图的出处，看目录名就知道它属于哪篇。
+
+> [!tip] 命名建议
+> 图片文件名别用 `1.png`、`截图.png` 这种，用「这篇笔记里它是什么」来命名，比如 `practice-flow.webp`、`fretboard-scales.webp`。半年后搜文件名能直接找到。
+
 ## 正文结构建议
 
 1. **一句话结论**（读者只看这句也能拿走点什么）
