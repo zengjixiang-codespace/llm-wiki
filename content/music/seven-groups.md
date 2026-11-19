@@ -77,31 +77,31 @@ date: 2026-11-19
 
 ### I 组 · C 和弦
 
-![[seven-groups/group1.webp|第 I 组 C 和弦 从 do 到 do]]
+![[seven-groups/group1-v2.webp|第 I 组 C 和弦 从 do 到 do]]
 
 ### II 组 · Dm 和弦
 
-![[seven-groups/group2.webp|第 II 组 Dm 和弦 从 re 到 re]]
+![[seven-groups/group2-v2.webp|第 II 组 Dm 和弦 从 re 到 re]]
 
 ### III 组 · Em 和弦
 
-![[seven-groups/group3.webp|第 III 组 Em 和弦 从 mi 到 mi]]
+![[seven-groups/group3-v2.webp|第 III 组 Em 和弦 从 mi 到 mi]]
 
 ### IV 组 · F 和弦
 
-![[seven-groups/group4.webp|第 IV 组 F 和弦 从 fa 到 fa]]
+![[seven-groups/group4-v2.webp|第 IV 组 F 和弦 从 fa 到 fa]]
 
 ### V 组 · G 和弦
 
-![[seven-groups/group5.webp|第 V 组 G 和弦 从 sol 到 sol]]
+![[seven-groups/group5-v2.webp|第 V 组 G 和弦 从 sol 到 sol]]
 
 ### VI 组 · Am 和弦
 
-![[seven-groups/group6.webp|第 VI 组 Am 和弦 从 la 到 la]]
+![[seven-groups/group6-v2.webp|第 VI 组 Am 和弦 从 la 到 la]]
 
 ### VII 组 · Bdim 和弦
 
-![[seven-groups/group7.webp|第 VII 组 Bdim 和弦 从 si 到 si]]
+![[seven-groups/group7-v2.webp|第 VII 组 Bdim 和弦 从 si 到 si]]
 
 ## 怎么练
 
