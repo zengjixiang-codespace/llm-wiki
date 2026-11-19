@@ -12,6 +12,10 @@ tags:
 
 - [[go-interface|Go 的接口是隐式实现]]
 
+## Redis
+
+- [[programming/redis/index|Redis]] —— 数据结构、持久化、集群与缓存实践的入口
+
 ## 待写清单
 
 - [ ] 切片扩容与底层数组共享
