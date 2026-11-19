@@ -8,12 +8,6 @@ tags:
 
 按语言分组。同一篇笔记只讲一个点，跨语言通用的概念放到 [[topics|主题页]] 里。
 
-## Go
-
-- [ ] 切片扩容与底层数组共享
-- [ ] `defer` 的参数求值时机
-- [ ] channel 关闭的三种误用
-
 ## Redis
 
 - [[programming/redis/index|Redis]] —— 数据结构、持久化、集群与缓存实践的入口
