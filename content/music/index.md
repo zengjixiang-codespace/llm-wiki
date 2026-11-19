@@ -26,6 +26,7 @@ tags:
 ## 练习
 
 - [[practice-plan|练习规划：爬格子与一弦三音]]
+- [[seven-groups|七组音阶练习：把每个音都当成临时主音]]
 - [[practice-log|练习日志模板]]
 
 ## 跨领域
