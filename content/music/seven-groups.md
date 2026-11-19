@@ -33,6 +33,19 @@ date: 2026-11-19
 
 每一张都标了：和弦按法（左上）、音阶位置（大数字是顺序，小数字是手指）、黑圈是本组根音。
 
+### 和弦图怎么看
+
+```
+      6  5  4  3  2  1     ← 弦号（左粗右细）
+      ×  ○     ○          ← × 不弹，○ 空弦（下面小字是音名）
+   ┌──┬──┬──┬──┬──┬──┐
+ 1 │  │  │  │  │ 1│  │   ← 品数在左边，点里是手指，点下是音名
+```
+
+- **竖线 = 弦**，从左到右是 6 弦到 1 弦
+- **横线 = 品**，左边数字 1–5 是第几品；最上面的粗线是琴枕，不是一品
+- **黑点里的数字 = 手指**（1 食指 2 中指 3 无名指 4 小指），**点下面的小字 = 这个音的音名**
+
 > [!tip] 两种圆点
 > **实心圆 + 数字**：左手要按，数字是手指（1 食指 / 2 中指 / 3 无名指）。
 > **空心圆 ○**：空弦，**左手不按**，右手直接拨，让它自然响。
@@ -77,31 +90,31 @@ date: 2026-11-19
 
 ### I 组 · C 和弦
 
-![[seven-groups/group1-v2.webp|第 I 组 C 和弦 从 do 到 do]]
+![[seven-groups/group1-v3.webp|第 I 组 C 和弦 从 do 到 do]]
 
 ### II 组 · Dm 和弦
 
-![[seven-groups/group2-v2.webp|第 II 组 Dm 和弦 从 re 到 re]]
+![[seven-groups/group2-v3.webp|第 II 组 Dm 和弦 从 re 到 re]]
 
 ### III 组 · Em 和弦
 
-![[seven-groups/group3-v2.webp|第 III 组 Em 和弦 从 mi 到 mi]]
+![[seven-groups/group3-v3.webp|第 III 组 Em 和弦 从 mi 到 mi]]
 
 ### IV 组 · F 和弦
 
-![[seven-groups/group4-v2.webp|第 IV 组 F 和弦 从 fa 到 fa]]
+![[seven-groups/group4-v3.webp|第 IV 组 F 和弦 从 fa 到 fa]]
 
 ### V 组 · G 和弦
 
-![[seven-groups/group5-v2.webp|第 V 组 G 和弦 从 sol 到 sol]]
+![[seven-groups/group5-v3.webp|第 V 组 G 和弦 从 sol 到 sol]]
 
 ### VI 组 · Am 和弦
 
-![[seven-groups/group6-v2.webp|第 VI 组 Am 和弦 从 la 到 la]]
+![[seven-groups/group6-v3.webp|第 VI 组 Am 和弦 从 la 到 la]]
 
 ### VII 组 · Bdim 和弦
 
-![[seven-groups/group7-v2.webp|第 VII 组 Bdim 和弦 从 si 到 si]]
+![[seven-groups/group7-v3.webp|第 VII 组 Bdim 和弦 从 si 到 si]]
 
 ## 怎么练
 
